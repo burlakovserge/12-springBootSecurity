@@ -1,4 +1,4 @@
-package main.model;
+package com.example.toDoList.model;
 
 import javax.persistence.*;
 import java.util.Date;
