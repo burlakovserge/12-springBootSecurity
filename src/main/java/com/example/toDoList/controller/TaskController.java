@@ -17,6 +17,12 @@ public class TaskController {
     @Autowired
     private TaskRepository taskRepository;
 
+    @PostMapping("/task/")
+    public int add(Task task) {
+        Task newTask = taskRepository.save(task);
+        return newTask.getId();
+    }
+
     @GetMapping("/tasks/")
     public List<Task> list() {
         Iterable<Task> taskIterable = taskRepository.findAll();
@@ -27,12 +33,6 @@ public class TaskController {
         return tasks;
     }
 
-    @PostMapping("/task/")
-    public int add(Task task) {
-        Task newTask = taskRepository.save(task);
-        return newTask.getId();
-    }
-
     @GetMapping("/tasks/{id}")
     public ResponseEntity get(@PathVariable int id) {
         Optional<Task> optionalTask = taskRepository.findById(id);
@@ -41,4 +41,10 @@ public class TaskController {
         }
         return new ResponseEntity(optionalTask.get(), HttpStatus.OK);
     }
+
+    @DeleteMapping("/tasks/{id}")
+    public void deletePost(@PathVariable int id) {
+        taskRepository.deleteById(id);
+    }
+
 }
