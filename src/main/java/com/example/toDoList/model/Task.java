@@ -1,11 +1,17 @@
 package com.example.toDoList.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Task
-{
+@Data
+
+@NoArgsConstructor
+public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
@@ -17,38 +23,9 @@ public class Task
     @Column
     private String commentary;
 
-    @Column
-    private Date creationDate = new Date();
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Task(String name, String commentary) {
         this.name = name;
-    }
-
-    public String getCommentary() {
-        return commentary;
-    }
-
-    public void setCommentary(String commentary) {
         this.commentary = commentary;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
 }

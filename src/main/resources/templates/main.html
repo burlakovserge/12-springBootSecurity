@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My toDoList</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<form method="post">
+    <input type="text" th:name="name" placeholder="add task name">
+    <input type="text" th:name="commentary" placeholder="add commentary">
+    <button type="submit">ADD</button>
+</form>
+<!--<form method="post" action="delete">-->
+<!--    <input type="number" th:name="id" placeholder="enter id for delete">-->
+<!--    <button type="submit">Delete</button>-->
+<!--</form>-->
+
+<div>
+    <h1>Tasks list</h1>
+    <div th:each="task : ${tasks}">
+        <span th:text="${task.getId()}"></span>
+        <span th:text="${task.getName()}"></span>
+        <span th:text="${task.getCommentary()}"></span>
+    </div>
+
+</div>
+
+</body>
+
+
+</html>
