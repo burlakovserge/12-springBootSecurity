@@ -1,17 +1,17 @@
 package com.example.toDoList.controller;
 
 import com.example.toDoList.model.Task;
-import com.example.toDoList.repos.TaskRepository;
+import com.example.toDoList.repos.TaskRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class TaskController {
+public class MainController {
 
     @Autowired
-    private TaskRepository taskRepository;
+    private TaskRepo taskRepo;
 
     @GetMapping("/")
         public String greeting(Model model){
@@ -20,7 +20,7 @@ public class TaskController {
 
     @GetMapping("/main")
     public String list(Model model) {
-        Iterable<Task> taskIterable = taskRepository.findAll();
+        Iterable<Task> taskIterable = taskRepo.findAll();
         model.addAttribute("tasks", taskIterable);
         return "main";
     }
@@ -29,8 +29,8 @@ public class TaskController {
     public String addTask(@RequestParam String name, @RequestParam String commentary,
                           Model model) {
         Task task = new Task(name, commentary);
-        taskRepository.save(task);
-        Iterable<Task> taskIterable = taskRepository.findAll();
+        taskRepo.save(task);
+        Iterable<Task> taskIterable = taskRepo.findAll();
         model.addAttribute("tasks", taskIterable);
         return "main";
     }

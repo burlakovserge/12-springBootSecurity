@@ -1,4 +1,4 @@
-spring.datasource.url: jdbc:mysql://localhost:3306/mytrainingbase?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+spring.datasource.url: jdbc:mysql://localhost:3306/mytrainingbase?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
 spring.datasource.username: root
 spring.datasource.password: admin
 spring.jpa.hibernate.ddl-auto: update

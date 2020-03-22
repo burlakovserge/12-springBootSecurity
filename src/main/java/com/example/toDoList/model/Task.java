@@ -1,15 +1,12 @@
 package com.example.toDoList.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Data
-
 @NoArgsConstructor
 public class Task {
     @Id
@@ -28,4 +25,4 @@ public class Task {
         this.commentary = commentary;
     }
 
-}
+    }
